@@ -45,6 +45,7 @@ namespace TheObserverPattern
             this.temperature = temperature;
             this.humidity = humidity;
             this.pressure = pressure;
+            measurementsChanged();
         }
     }
 }
