@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace TheObserverPattern
+﻿namespace TheObserverPattern
 {
-    interface IObserver
+    public interface IObserver
     {
-        void update(float temp, float humidity, float pressure);
+        void Register(ISubject weatherData);
+
+        void Update(float temp, float humidity, float pressure);
+
+        string Display();
     }
 }

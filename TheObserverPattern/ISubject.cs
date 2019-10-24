@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace TheObserverPattern
+﻿namespace TheObserverPattern
 {
-    interface ISubject
+    public interface ISubject
     {
-        void registerObserver(IObserver o);
-        void removeObserver(IObserver o);
-        void notifyObservers();
+        void RegisterObserver(IObserver observer);
+
+        void RemoveObserver(IObserver observer);
+
+        void NotifyObservers();
     }
 }

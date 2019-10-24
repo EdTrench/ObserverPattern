@@ -1,48 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace TheObserverPattern
 {
-    class StatisticsDisplay : IObserver, IDisplayElement
+    public class StatisticsDisplay : DisplayBase
     {
-        private float averageTemperature;
-        private float maximumTemperature;
-        private float minimumTemperature;
-        private static List<float> temps = new List<float>();
-        
-        private ISubject weatherData;
+        private float _averageTemperature;
+        private float _maximumTemperature;
+        private float _minimumTemperature;
+        private static List<float> Temperatures { get; } = new List<float>();
 
-        public StatisticsDisplay(ISubject weatherData)
-        {
-            this.weatherData = weatherData;
-            weatherData.registerObserver(this);
-        }
-
-        public void update(float temperature, float humidity, float pressure)
+        public override void Update(float temperature, float humidity, float pressure)
         {
 
-            temps.Add(temperature);
+            Temperatures.Add(temperature);
 
-            if ((temperature <= this.minimumTemperature) || (temps.Count() == 1))
+            if ((temperature <= _minimumTemperature) || (Temperatures.Count == 1))
             {
-                this.minimumTemperature = temperature;   
+                _minimumTemperature = temperature;   
             }
 
-            if (temperature > this.maximumTemperature)
+            if (temperature > _maximumTemperature)
             {
-                this.maximumTemperature = temperature;
+                _maximumTemperature = temperature;
             }
 
-            this.averageTemperature = temps.Sum() / temps.Count();
-
-            display();
+            _averageTemperature = Temperatures.Sum() / Temperatures.Count;
         }
 
-        public void display()
+        public override string Display()
         {
-            Console.WriteLine("Avg/Max/Min temperature = " + this.averageTemperature + "/" + maximumTemperature + "/" + this.minimumTemperature);
+            return $"Avg/Max/Min temperature = {_averageTemperature} / {_maximumTemperature} / {_minimumTemperature}";
         }
     }
 }

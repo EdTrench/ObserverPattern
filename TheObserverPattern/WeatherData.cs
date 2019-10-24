@@ -1,51 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace TheObserverPattern
 {
-    class WeatherData : ISubject
+    public class WeatherData : ISubject
     {
-        private List<IObserver> observers;
-        private float temperature;
-        private float humidity;
-        private float pressure;
+        private readonly IList<IObserver> _observers = new List<IObserver>();
+        private float _temperature;
+        private float _humidity;
+        private float _pressure;
 
-        public WeatherData()
+        public void RegisterObserver(IObserver o)
         {
-            observers = new List<IObserver>();
+            _observers.Add(o);
         }
 
-        public void registerObserver(IObserver o)
+        public void RemoveObserver(IObserver o)
         {
-            observers.Add(o);
+            _observers.Remove(o);
         }
 
-        public void removeObserver(IObserver o)
+        public void NotifyObservers()
         {
-            observers.Remove(o);
-        }
-
-        public void notifyObservers()
-        {
-            foreach (IObserver o in observers)
+            foreach (var o in _observers)
             {
-                o.update(temperature, humidity, pressure);
+                o.Update(_temperature, _humidity, _pressure);
             }
         }
 
-        public void measurementsChanged()
+        public void SetMeasurements(float temperature, float humidity, float pressure)
         {
-            notifyObservers();
-        }
-
-        public void setMeasurements(float temperature, float humidity, float pressure)
-        {
-            this.temperature = temperature;
-            this.humidity = humidity;
-            this.pressure = pressure;
-            measurementsChanged();
+            _temperature = temperature;
+            _humidity = humidity;
+            _pressure = pressure;
         }
     }
 }

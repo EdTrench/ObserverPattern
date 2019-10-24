@@ -1,33 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace TheObserverPattern
+﻿namespace TheObserverPattern
 {
-    class CurrentConditionsDisplay : IObserver, IDisplayElement
+    public class CurrentConditionsDisplay : DisplayBase
     {
+        private float _temperature;
+        private float _humidity;
 
-        private float temperature;
-        private float humidity;
-        private ISubject weatherData;
-
-        public CurrentConditionsDisplay(ISubject weatherData)
+        public override void Update(float temperature, float humidity, float pressure)
         {
-            this.weatherData = weatherData;
-            weatherData.registerObserver(this);
+            _temperature = temperature;
+            _humidity = humidity;
         }
 
-        public void update(float temperature, float humidity, float pressure)
+        public override string Display()
         {
-            this.temperature = temperature;
-            this.humidity = humidity;
-            display();
-        }
-
-        public void display()
-        {
-            Console.WriteLine("Current conditions: " + temperature + "F degrees and " + humidity + "% humidity");
+            return $"Current conditions: {_temperature} F degrees and {_humidity}% humidity";
         }
     }
 }

@@ -1,33 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace TheObserverPattern
+﻿namespace TheObserverPattern
 {
-    class HeatIndexDisplay : IObserver, IDisplayElement
+    public class HeatIndexDisplay : DisplayBase
     {
-        private ISubject weatherData;
-        private float heatIndex;
+        private float _heatIndex;
 
-        public HeatIndexDisplay(ISubject weatherData)
+        public override void Update(float temperature, float humidity, float pressure)
         {
-            this.weatherData = weatherData;
-            weatherData.registerObserver(this);
+            _heatIndex = ComputeHeatIndex(temperature, humidity);
         }
 
-        public void update(float temperature, float humidity, float pressure)
+        public override string Display()
         {
-            this.heatIndex = computeHeatIndex(temperature, humidity);
-            display();
+            return $"Heat Index is {_heatIndex}";
         }
 
-        public void display()
-        {
-            Console.WriteLine("Heat Index is " + this.heatIndex);
-        }
-
-        private float computeHeatIndex(float t, float rh)
+        private float ComputeHeatIndex(float t, float rh)
         {
             float index = (float)((16.923 + (0.185212 * t) + (5.37941 * rh) - (0.100254 * t * rh) +
                 (0.00941695 * (t * t)) + (0.00728898 * (rh * rh)) +
