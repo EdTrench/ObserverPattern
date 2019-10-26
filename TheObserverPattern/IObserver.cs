@@ -1,11 +1,16 @@
-﻿namespace TheObserverPattern
+﻿using System.Collections.Generic;
+using TheObserverPattern.Models;
+
+namespace TheObserverPattern
 {
     public interface IObserver
     {
-        void Register(ISubject weatherData);
+        void Register(ISubject orderData);
 
-        void Update(float temp, float humidity, float pressure);
+        void AddOrders(List<Order> orders);
 
-        string Display();
+        void OrderCooked(string orderId);
+
+        void OrderDelivered(string orderId);
     }
 }

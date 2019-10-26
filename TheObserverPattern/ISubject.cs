@@ -6,6 +6,11 @@
 
         void RemoveObserver(IObserver observer);
 
-        void NotifyObservers();
+        void NotifyObserversOfNewOrders();
+
+        void NotifyObserversOrderCooked();
+
+        void NotifyObserversOrderDelivered();
+
     }
 }
