@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using TheObserverPattern.Models;
+using ObserverPattern.Models;
 
-namespace TheObserverPattern
+namespace ObserverPattern
 {
     public interface IObserver
     {

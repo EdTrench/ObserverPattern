@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace TheObserverPattern.Apps
+namespace ObserverPattern.Apps
 {
     public class DriverApp : AppBase
     {

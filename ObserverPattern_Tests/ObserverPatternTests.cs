@@ -1,13 +1,13 @@
 ﻿using System;
 using NUnit.Framework;
-using TheObserverPattern;
-using TheObserverPattern.Apps;
-using TheObserverPattern.Models;
+using ObserverPattern;
+using ObserverPattern.Apps;
+using ObserverPattern.Models;
 
-namespace TheObserverPattern_Tests
+namespace ObserverPattern_Tests
 {
     [TestFixture]
-    public class TheObserverPatternTests
+    public class ObserverPatternTests
     {
         private Order _order1;
         private Order _order2;
@@ -48,7 +48,7 @@ namespace TheObserverPattern_Tests
         }
 
         [Test]
-        public void TheObserverPattern_ManagerAppDisplaysManagerInformation()
+        public void ObserverPattern_ManagerAppDisplaysManagerInformation()
         {
             // act
             var managerApp = new ManagerApp();
@@ -68,7 +68,7 @@ namespace TheObserverPattern_Tests
         }
 
         [Test]
-        public void TheObserverPattern_DriverAppDisplaysDriverInformation()
+        public void ObserverPattern_DriverAppDisplaysDriverInformation()
         {
             // act
             var driverApp = new DriverApp();
@@ -88,7 +88,7 @@ namespace TheObserverPattern_Tests
         }
 
         [Test]
-        public void TheObserverPattern_RestaurantAppDisplaysRestaurantInformation()
+        public void ObserverPattern_RestaurantAppDisplaysRestaurantInformation()
         {
             // act
             var restaurantApp = new RestaurantApp();
@@ -109,7 +109,7 @@ namespace TheObserverPattern_Tests
         }
 
         [Test]
-        public void TheObserverPattern_RestaurantAppDisplaysRestaurantInformationAfterFirstOrderCooked()
+        public void ObserverPattern_RestaurantAppDisplaysRestaurantInformationAfterFirstOrderCooked()
         {
             // act
             var restaurantApp = new RestaurantApp();
@@ -133,7 +133,7 @@ namespace TheObserverPattern_Tests
         }
 
         [Test]
-        public void TheObserverPattern_DriverAppDisplaysDriverInformationAfterFirstOrderDelivered()
+        public void ObserverPattern_DriverAppDisplaysDriverInformationAfterFirstOrderDelivered()
         {
             // act
             var driverApp = new DriverApp();
@@ -156,7 +156,7 @@ namespace TheObserverPattern_Tests
         }
 
         [Test]
-        public void TheObserverPattern_ManagerAppDisplaysManagerDeliveredOrdersInformationAfterFirstOrderDelivered()
+        public void ObserverPattern_ManagerAppDisplaysManagerDeliveredOrdersInformationAfterFirstOrderDelivered()
         {
             // act
             var managerApp = new ManagerApp();

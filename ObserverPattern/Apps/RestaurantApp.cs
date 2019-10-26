@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Text;
 
-namespace TheObserverPattern.Apps
+namespace ObserverPattern.Apps
 {
     public class RestaurantApp : AppBase
     {
