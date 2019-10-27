@@ -1,4 +1,4 @@
-﻿namespace TheObserverPattern.Apps
+﻿namespace ObserverPattern.Apps
 {
     public interface IApp
     {

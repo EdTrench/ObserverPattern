@@ -1,4 +1,4 @@
-﻿namespace TheObserverPattern
+﻿namespace ObserverPattern
 {
     public interface ISubject
     {

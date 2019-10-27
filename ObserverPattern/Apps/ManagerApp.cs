@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text;
 
-namespace TheObserverPattern.Apps
+namespace ObserverPattern.Apps
 {
     public class ManagerApp : AppBase, IManagerApp
     {
@@ -18,7 +18,8 @@ namespace TheObserverPattern.Apps
 
             foreach (var order in deliveredOrders)
             {
-                result.AppendLine(order.Id);
+                result.Append(order.Id);
+                result.Append(Environment.NewLine);
             }
 
             return $"Delivered Orders - {result}";

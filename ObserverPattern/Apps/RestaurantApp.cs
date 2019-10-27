@@ -1,7 +1,8 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Text;
 
-namespace TheObserverPattern.Apps
+namespace ObserverPattern.Apps
 {
     public class RestaurantApp : AppBase
     {
@@ -16,7 +17,8 @@ namespace TheObserverPattern.Apps
 
             foreach (var item in items)
             {
-                result.AppendLine(item);
+                result.Append(item);
+                result.Append(Environment.NewLine);
             }
 
             return $"Ordered Items to prepare = {result}";
