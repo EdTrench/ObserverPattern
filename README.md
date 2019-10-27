@@ -4,3 +4,5 @@ ObserverPattern
 ===============
 
 ObserverPattern
+
+![alt text](https://github.com/EdTrench/ObserverPattern/blob/master/pseudo_class_diagram.png?raw=true)
