@@ -8,8 +8,8 @@
     <ProjectGuid>{7BA9BA9B-CDA3-43A1-BAC2-12CBC67EECB6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TheObserverPattern_Tests</RootNamespace>
-    <AssemblyName>TheObserverPattern_Tests</AssemblyName>
+    <RootNamespace>ObserverPattern_Tests</RootNamespace>
+    <AssemblyName>ObserverPattern_Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -47,16 +47,16 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TheObserverPatternTests.cs" />
+    <Compile Include="ObserverPatternTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TheObserverPattern\TheObserverPattern.csproj">
+    <ProjectReference Include="..\ObserverPattern\ObserverPattern.csproj">
       <Project>{9c1ab753-7aa7-433f-9541-4db24f7288ce}</Project>
-      <Name>TheObserverPattern</Name>
+      <Name>ObserverPattern</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

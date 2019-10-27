@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TheObserverPattern.Models
+namespace ObserverPattern.Models
 {
     public class Order
     {

@@ -1,13 +1,13 @@
 ﻿using System;
 using NUnit.Framework;
-using TheObserverPattern;
-using TheObserverPattern.Apps;
-using TheObserverPattern.Models;
+using ObserverPattern;
+using ObserverPattern.Apps;
+using ObserverPattern.Models;
 
-namespace TheObserverPattern_Tests
+namespace ObserverPattern_Tests
 {
     [TestFixture]
-    public class TheObserverPatternTests
+    public class ObserverPatternTests
     {
         private Order _order1;
         private Order _order2;
@@ -48,7 +48,7 @@ namespace TheObserverPattern_Tests
         }
 
         [Test]
-        public void TheObserverPattern_ManagerAppDisplaysManagerInformation()
+        public void ObserverPattern_ManagerAppDisplaysManagerInformation()
         {
             // act
             var managerApp = new ManagerApp();
@@ -68,7 +68,7 @@ namespace TheObserverPattern_Tests
         }
 
         [Test]
-        public void TheObserverPattern_DriverAppDisplaysDriverInformation()
+        public void ObserverPattern_DriverAppDisplaysDriverInformation()
         {
             // act
             var driverApp = new DriverApp();
@@ -88,7 +88,7 @@ namespace TheObserverPattern_Tests
         }
 
         [Test]
-        public void TheObserverPattern_RestaurantAppDisplaysRestaurantInformation()
+        public void ObserverPattern_RestaurantAppDisplaysRestaurantInformation()
         {
             // act
             var restaurantApp = new RestaurantApp();
@@ -105,11 +105,11 @@ namespace TheObserverPattern_Tests
 
             // assert
             Assert.AreEqual(restaurantApp.Display(),
-                "Ordered Items to prepare = pizza ham and cheese\r\nchips\r\ncoke\r\n");
+                $"Ordered Items to prepare = pizza ham and cheese{Environment.NewLine}chips{Environment.NewLine}coke{Environment.NewLine}");
         }
 
         [Test]
-        public void TheObserverPattern_RestaurantAppDisplaysRestaurantInformationAfterFirstOrderCooked()
+        public void ObserverPattern_RestaurantAppDisplaysRestaurantInformationAfterFirstOrderCooked()
         {
             // act
             var restaurantApp = new RestaurantApp();
@@ -129,11 +129,11 @@ namespace TheObserverPattern_Tests
 
             // assert
             Assert.AreEqual(restaurantApp.Display(),
-                "Ordered Items to prepare = chicken jalfrezi\r\ngarlic naan bread\r\nonion bhaji\r\n");
+                $"Ordered Items to prepare = chicken jalfrezi{Environment.NewLine}garlic naan bread{Environment.NewLine}onion bhaji{Environment.NewLine}");
         }
 
         [Test]
-        public void TheObserverPattern_DriverAppDisplaysDriverInformationAfterFirstOrderDelivered()
+        public void ObserverPattern_DriverAppDisplaysDriverInformationAfterFirstOrderDelivered()
         {
             // act
             var driverApp = new DriverApp();
@@ -156,7 +156,7 @@ namespace TheObserverPattern_Tests
         }
 
         [Test]
-        public void TheObserverPattern_ManagerAppDisplaysManagerDeliveredOrdersInformationAfterFirstOrderDelivered()
+        public void ObserverPattern_ManagerAppDisplaysManagerDeliveredOrdersInformationAfterFirstOrderDelivered()
         {
             // act
             var managerApp = new ManagerApp();
@@ -207,7 +207,7 @@ namespace TheObserverPattern_Tests
             orderData.NotifyObserversOrderDelivered();
 
             // assert
-            Assert.AreEqual(managerApp.DeliverdOrders(), "Delivered Orders - test order 2\r\ntest order 3\r\n");
+            Assert.AreEqual(managerApp.DeliverdOrders(), $"Delivered Orders - test order 2{Environment.NewLine}test order 3{Environment.NewLine}");
         }
     }
 }

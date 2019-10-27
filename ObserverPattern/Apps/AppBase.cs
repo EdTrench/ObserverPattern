@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using TheObserverPattern.Models;
+using ObserverPattern.Models;
 
-namespace TheObserverPattern.Apps
+namespace ObserverPattern.Apps
 {
     public abstract class  AppBase : IObserver, IApp
     {
