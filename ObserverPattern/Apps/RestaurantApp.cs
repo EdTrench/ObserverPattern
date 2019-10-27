@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Text;
 
 namespace ObserverPattern.Apps
@@ -16,7 +17,8 @@ namespace ObserverPattern.Apps
 
             foreach (var item in items)
             {
-                result.AppendLine(item);
+                result.Append(item);
+                result.Append(Environment.NewLine);
             }
 
             return $"Ordered Items to prepare = {result}";

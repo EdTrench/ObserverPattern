@@ -18,7 +18,8 @@ namespace ObserverPattern.Apps
 
             foreach (var order in deliveredOrders)
             {
-                result.AppendLine(order.Id);
+                result.Append(order.Id);
+                result.Append(Environment.NewLine);
             }
 
             return $"Delivered Orders - {result}";

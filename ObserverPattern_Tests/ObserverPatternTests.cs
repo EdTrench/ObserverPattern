@@ -105,7 +105,7 @@ namespace ObserverPattern_Tests
 
             // assert
             Assert.AreEqual(restaurantApp.Display(),
-                "Ordered Items to prepare = pizza ham and cheese\r\nchips\r\ncoke\r\n");
+                $"Ordered Items to prepare = pizza ham and cheese{Environment.NewLine}chips{Environment.NewLine}coke{Environment.NewLine}");
         }
 
         [Test]
@@ -129,7 +129,7 @@ namespace ObserverPattern_Tests
 
             // assert
             Assert.AreEqual(restaurantApp.Display(),
-                "Ordered Items to prepare = chicken jalfrezi\r\ngarlic naan bread\r\nonion bhaji\r\n");
+                $"Ordered Items to prepare = chicken jalfrezi{Environment.NewLine}garlic naan bread{Environment.NewLine}onion bhaji{Environment.NewLine}");
         }
 
         [Test]
@@ -207,7 +207,7 @@ namespace ObserverPattern_Tests
             orderData.NotifyObserversOrderDelivered();
 
             // assert
-            Assert.AreEqual(managerApp.DeliverdOrders(), "Delivered Orders - test order 2\r\ntest order 3\r\n");
+            Assert.AreEqual(managerApp.DeliverdOrders(), $"Delivered Orders - test order 2{Environment.NewLine}test order 3{Environment.NewLine}");
         }
     }
 }
