@@ -3,6 +3,6 @@
 ObserverPattern
 ===============
 
-ObserverPattern
+Observer Pattern - Adapted from Head First Design Patterns book
 
-![alt text](https://github.com/EdTrench/ObserverPattern/blob/master/pseudo_class_diagram.png?raw=true)
+![alt text](https://github.com/EdTrench/ObserverPattern/blob/master/pseudo_class_diagram.png?raw=true) 
