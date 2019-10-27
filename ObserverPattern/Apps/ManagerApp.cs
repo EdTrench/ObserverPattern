@@ -22,6 +22,11 @@ namespace ObserverPattern.Apps
                 result.Append(Environment.NewLine);
             }
 
+            if (!deliveredOrders.Any())
+            {
+                result.Append("0");
+            }
+
             return $"Delivered Orders - {result}";
         }
     }

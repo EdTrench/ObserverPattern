@@ -22,7 +22,7 @@ namespace ObserverPattern_Tests
                 Amount = 9.50m,
                 CustomerEmail = "test@test.com",
                 DeliveryPostcode = "TE01 1ST",
-                Items = new[] { "pizza ham and cheese", "chips", "coke" },
+                Items = new[] {"pizza ham and cheese", "chips", "coke"},
                 PlacedDate = DateTime.UtcNow
             };
 
@@ -32,7 +32,7 @@ namespace ObserverPattern_Tests
                 Amount = 13.12m,
                 CustomerEmail = "test2@test2.com",
                 DeliveryPostcode = "TE02 2ND",
-                Items = new[] { "chicken jalfrezi", "garlic naan bread", "onion bhaji" },
+                Items = new[] {"chicken jalfrezi", "garlic naan bread", "onion bhaji"},
                 PlacedDate = DateTime.UtcNow
             };
 
@@ -42,7 +42,7 @@ namespace ObserverPattern_Tests
                 Amount = 11.05m,
                 CustomerEmail = "test3@test3.com",
                 DeliveryPostcode = "TE03 3RD",
-                Items = new[] { "fried plaice - meduim", "chips", "mushy peas" },
+                Items = new[] {"fried plaice - meduim", "chips", "mushy peas"},
                 PlacedDate = DateTime.UtcNow
             };
         }
@@ -168,6 +168,62 @@ namespace ObserverPattern_Tests
                 Amount = 9.50m,
                 CustomerEmail = "test@test.com",
                 DeliveryPostcode = "TE01 1ST",
+                Items = new[] {"pizza ham and cheese", "chips", "coke"},
+                PlacedDate = DateTime.UtcNow
+            };
+
+            var order2 = new Order
+            {
+                Id = "test order 2",
+                Amount = 13.12m,
+                CustomerEmail = "test2@test2.com",
+                DeliveryPostcode = "TE02 2ND",
+                Items = new[] {"chicken jalfrezi", "garlic naan bread", "onion bhaji"},
+                PlacedDate = DateTime.UtcNow
+            };
+
+            var order3 = new Order
+            {
+                Id = "test order 3",
+                Amount = 11.05m,
+                CustomerEmail = "test3@test3.com",
+                DeliveryPostcode = "TE03 3RD",
+                Items = new[] {"fried plaice - meduim", "chips", "mushy peas"},
+                PlacedDate = DateTime.UtcNow
+            };
+
+            // arrange
+            managerApp.Register(orderData);
+
+            orderData.AddNewOrder(order1);
+            orderData.AddNewOrder(order2);
+            orderData.AddNewOrder(order3);
+            orderData.NotifyObserversOfNewOrders();
+
+            orderData.OrderDelivered("test order 2");
+            orderData.NotifyObserversOrderDelivered();
+
+            orderData.OrderDelivered("test order 3");
+            orderData.NotifyObserversOrderDelivered();
+
+            // assert
+            Assert.AreEqual(managerApp.DeliverdOrders(),
+                $"Delivered Orders - test order 2{Environment.NewLine}test order 3{Environment.NewLine}");
+        }
+
+        [Test]
+        public void ObserverPattern_ManagerAppDisplaysManagerDeliveredOrdersInformationWithNoOrdersDelivered()
+        {
+            // act
+            var managerApp = new ManagerApp();
+            var orderData = new OrderData();
+
+            var order1 = new Order
+            {
+                Id = "test order 1",
+                Amount = 9.50m,
+                CustomerEmail = "test@test.com",
+                DeliveryPostcode = "TE01 1ST",
                 Items = new[] { "pizza ham and cheese", "chips", "coke" },
                 PlacedDate = DateTime.UtcNow
             };
@@ -198,16 +254,11 @@ namespace ObserverPattern_Tests
             orderData.AddNewOrder(order1);
             orderData.AddNewOrder(order2);
             orderData.AddNewOrder(order3);
+
             orderData.NotifyObserversOfNewOrders();
-
-            orderData.OrderDelivered("test order 2");
-            orderData.NotifyObserversOrderDelivered();
-
-            orderData.OrderDelivered("test order 3");
-            orderData.NotifyObserversOrderDelivered();
-
+            
             // assert
-            Assert.AreEqual(managerApp.DeliverdOrders(), $"Delivered Orders - test order 2{Environment.NewLine}test order 3{Environment.NewLine}");
+            Assert.AreEqual(managerApp.DeliverdOrders(), "Delivered Orders - 0");
         }
     }
 }
